@@ -6,6 +6,7 @@ namespace ContinualOutput
 {
 	public class ApplicationArguments
 	{
+		public bool ShouldDisplayApplicationHelpInstructions { get; }
 		public int NumberOfMessagesToWrite { get; }
 		public int NumberOfMillisecondsToRunFor { get; }
 		public bool ShouldWriteErrors { get; }
@@ -14,8 +15,9 @@ namespace ContinualOutput
 		public int ExitCode { get; }
 		public int DelayBetweenMessagesInMilliseconds { get; }
 
-		public ApplicationArguments(int numberOfMessagesToWrite, int numberOfMillisecondsToRunFor, bool shouldWriteErrors, string standardOutputString, string standardErrorString, int exitCode, int delayBetweenMessagesInMilliseconds)
+		public ApplicationArguments(bool shouldDisplayApplicationHelpInstructions, int numberOfMessagesToWrite, int numberOfMillisecondsToRunFor, bool shouldWriteErrors, string standardOutputString, string standardErrorString, int exitCode, int delayBetweenMessagesInMilliseconds)
 		{
+			ShouldDisplayApplicationHelpInstructions = shouldDisplayApplicationHelpInstructions;
 			NumberOfMessagesToWrite = numberOfMessagesToWrite;
 			NumberOfMillisecondsToRunFor = numberOfMillisecondsToRunFor;
 			ShouldWriteErrors = shouldWriteErrors;
