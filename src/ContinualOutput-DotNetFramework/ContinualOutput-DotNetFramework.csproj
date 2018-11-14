@@ -7,7 +7,7 @@
     <ProjectGuid>{E0221AD1-27A1-442A-B430-B97C7BA1CE1F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>ContinualOutput_DotNetFramework</RootNamespace>
-    <AssemblyName>ContinualOutput-DotNetFramework</AssemblyName>
+    <AssemblyName>ContinualOutput</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
