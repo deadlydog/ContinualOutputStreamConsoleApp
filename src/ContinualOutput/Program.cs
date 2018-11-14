@@ -4,10 +4,11 @@ namespace ContinualOutput
 {
 	class Program
 	{
-		static void Main(string[] args)
+		static int Main(string[] args)
 		{
 			var runner = new ContinualOutputRunner(args);
-			runner.Run();
+			var exitCode = runner.Run();
+			return exitCode;
 		}
 	}
 }

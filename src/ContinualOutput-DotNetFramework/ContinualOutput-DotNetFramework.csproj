@@ -51,7 +51,9 @@
     <Compile Include="..\ContinualOutput\ContinualOutputRunner.cs">
       <Link>ContinualOutputRunner.cs</Link>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="..\ContinualOutput\Program.cs">
+      <Link>Program.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -13,15 +13,17 @@ namespace ContinualOutput
 			ApplicationArguments = ApplicationArgumentsParser.ParseApplicationArguments(args);
 		}
 
-		public void Run()
+		public int Run()
 		{
 			if (ApplicationArguments.ShouldDisplayApplicationHelpInstructions)
 			{
 				ApplicationArgumentsParser.DisplayHelpInstructions();
-				return;
+				return 0;
 			}
 
 			WriteMessagesUntilComplete();
+
+			return ApplicationArguments.ExitCode;
 		}
 
 		private void WriteMessagesUntilComplete()
