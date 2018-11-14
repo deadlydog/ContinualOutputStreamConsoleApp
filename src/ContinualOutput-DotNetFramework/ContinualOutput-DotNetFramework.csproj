@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E0221AD1-27A1-442A-B430-B97C7BA1CE1F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ContinualOutput_DotNetFramework</RootNamespace>
+    <RootNamespace>ContinualOutput</RootNamespace>
     <AssemblyName>ContinualOutput</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -42,6 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\ContinualOutput\ApplicationArguments.cs">
+      <Link>ApplicationArguments.cs</Link>
+    </Compile>
+    <Compile Include="..\ContinualOutput\ApplicationArgumentsParser.cs">
+      <Link>ApplicationArgumentsParser.cs</Link>
+    </Compile>
+    <Compile Include="..\ContinualOutput\ContinualOutputRunner.cs">
+      <Link>ContinualOutputRunner.cs</Link>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
