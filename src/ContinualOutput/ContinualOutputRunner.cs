@@ -56,7 +56,7 @@ namespace ContinualOutput
 			}
 			else
 			{
-				var finishTime = startTime.AddSeconds(applicationArguments.NumberOfMillisecondsToRunFor);
+				var finishTime = startTime.AddMilliseconds(applicationArguments.NumberOfMillisecondsToRunFor);
 				return DateTime.UtcNow < finishTime;
 			}
 		}
