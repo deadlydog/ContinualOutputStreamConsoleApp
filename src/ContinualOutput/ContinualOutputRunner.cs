@@ -33,14 +33,16 @@ namespace ContinualOutput
 			bool shouldContinueRunning = ShouldContinueRunning(ApplicationArguments, numberOfMessagesWritten, startTime);
 			do
 			{
-				bool shouldWriteError = ApplicationArguments.ShouldWriteErrors && (numberOfMessagesWritten % 2 == 0);
+				bool shouldWriteOutput = ApplicationArguments.OutputType == OutputTypes.Output || ApplicationArguments.OutputType == OutputTypes.All;
+				if (shouldWriteOutput)
+				{
+					Console.WriteLine(ApplicationArguments.StandardOutputString);
+				}
+
+				bool shouldWriteError = ApplicationArguments.OutputType == OutputTypes.Error || ApplicationArguments.OutputType == OutputTypes.All;
 				if (shouldWriteError)
 				{
 					Console.Error.WriteLine(ApplicationArguments.StandardErrorString);
-				}
-				else
-				{
-					Console.WriteLine(ApplicationArguments.StandardOutputString);
 				}
 
 				System.Threading.Thread.Sleep(ApplicationArguments.DelayBetweenMessagesInMilliseconds);
