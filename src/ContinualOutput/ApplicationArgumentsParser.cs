@@ -77,7 +77,7 @@ Options (alias first):
 	/o /output string	The string to write to the Standard Output stream. If not provided a default will be used.
 	/e /error string	The string to write to the Standard Error stream. If not provided a default will be used.
 	/c /exitCode int	The number to return when the console app exits. If not provided, 0 will be returned.
-	/d /delay int		The number of milliseconds to wait between output messages.
+	/d /delay int		The number of milliseconds to wait between output messages. If not provided, 1000 will be used.
 ";
 			Console.WriteLine(instructions);
 		}
