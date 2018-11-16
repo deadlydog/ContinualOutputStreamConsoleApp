@@ -37,6 +37,7 @@ namespace ContinualOutput
 							case "error": outputType = OutputTypes.Error; break;
 							default: outputType = OutputTypes.Output; break;
 						}
+						index++;
 						break;
 					case "/om":
 					case "/outputmessage": standardOutputString = nextArgument; index++;
