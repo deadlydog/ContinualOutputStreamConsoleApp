@@ -31,25 +31,26 @@ namespace ContinualOutput
 			int numberOfMessagesWritten = 0;
 			var startTime = DateTime.UtcNow;
 			bool shouldContinueRunning = ShouldContinueRunning(ApplicationArguments, numberOfMessagesWritten, startTime);
-			do
+			while (shouldContinueRunning)
 			{
+				numberOfMessagesWritten++;
+
 				bool shouldWriteOutput = ApplicationArguments.OutputType == OutputTypes.Output || ApplicationArguments.OutputType == OutputTypes.All;
 				if (shouldWriteOutput)
 				{
-					Console.WriteLine(ApplicationArguments.StandardOutputString);
+					Console.WriteLine($"[{numberOfMessagesWritten}] " + ApplicationArguments.StandardOutputString);
 				}
 
 				bool shouldWriteError = ApplicationArguments.OutputType == OutputTypes.Error || ApplicationArguments.OutputType == OutputTypes.All;
 				if (shouldWriteError)
 				{
-					Console.Error.WriteLine(ApplicationArguments.StandardErrorString);
+					Console.Error.WriteLine($"[{numberOfMessagesWritten}] " + ApplicationArguments.StandardErrorString);
 				}
 
 				System.Threading.Thread.Sleep(ApplicationArguments.DelayBetweenMessagesInMilliseconds);
 
-				numberOfMessagesWritten++;
 				shouldContinueRunning = ShouldContinueRunning(ApplicationArguments, numberOfMessagesWritten, startTime);
-			} while (shouldContinueRunning);
+			}
 		}
 
 		private bool ShouldContinueRunning(ApplicationArguments applicationArguments, int numberOfMessagesWritten, DateTime startTime)
