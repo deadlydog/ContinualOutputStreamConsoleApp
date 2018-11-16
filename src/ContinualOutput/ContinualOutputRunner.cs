@@ -47,7 +47,10 @@ namespace ContinualOutput
 					Console.Error.WriteLine($"[{numberOfMessagesWritten}] " + ApplicationArguments.StandardErrorString);
 				}
 
-				System.Threading.Thread.Sleep(ApplicationArguments.DelayBetweenMessagesInMilliseconds);
+				if (ApplicationArguments.DelayBetweenMessagesInMilliseconds > 0)
+				{
+					System.Threading.Thread.Sleep(ApplicationArguments.DelayBetweenMessagesInMilliseconds);
+				}
 
 				shouldContinueRunning = ShouldContinueRunning(ApplicationArguments, numberOfMessagesWritten, startTime);
 			}
