@@ -53,3 +53,11 @@ ContinualOutput.exe /number 5 /outputType All
 ```
 
 Display a message from both the Standard Output and Standard Error streams 5 times.
+
+---
+
+```Cmd
+ContinualOutput.exe /number 5 /throwException /exceptionMessage "Oh no, something bad happened"
+```
+
+Display a message from the Standard Output stream 5 times, and then throw an exception with a custom message before exiting.
