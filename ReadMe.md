@@ -33,10 +33,10 @@ Display a message from the Standard Output stream 5 times.
 ---
 
 ```Cmd
-ContinualOutput.exe /time 5000
+ContinualOutput.exe /time 5000 /outputMessage "This is some output."
 ```
 
-Display messages from the Standard Output stream for 5 seconds (5000 milliseconds).
+Display the message "This is some output." from the Standard Output stream for 5 seconds (5000 milliseconds).
 
 ---
 
