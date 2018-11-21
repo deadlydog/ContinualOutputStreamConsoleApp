@@ -2,7 +2,7 @@
 
 A basic console application that will continually write to the Standard Output stream and/or the Standard Error stream.
 
-The main purpose of this is for testing tools that need to interact with console applications.
+The main purpose of this console app is for it to be used by other applications that need to test how they interact with console applications. e.g. how they deal with specific standard output, errors, or exceptions.
 
 The solution contains both a .Net Framework project for creating a .exe console app, and a .Net Core project for creating a .dll console app.
 
