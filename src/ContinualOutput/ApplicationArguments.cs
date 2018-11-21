@@ -13,9 +13,11 @@ namespace ContinualOutput
 		public string StandardOutputString { get; }
 		public string StandardErrorString { get; }
 		public int ExitCode { get; }
+		public bool ShouldThrowException { get; }
+		public string ExceptionMessage { get; }
 		public int DelayBetweenMessagesInMilliseconds { get; }
 
-		public ApplicationArguments(bool shouldDisplayApplicationHelpInstructions, int numberOfMessagesToWrite, int numberOfMillisecondsToRunFor, OutputTypes outputType, string standardOutputString, string standardErrorString, int exitCode, int delayBetweenMessagesInMilliseconds)
+		public ApplicationArguments(bool shouldDisplayApplicationHelpInstructions, int numberOfMessagesToWrite, int numberOfMillisecondsToRunFor, OutputTypes outputType, string standardOutputString, string standardErrorString, int exitCode, bool shouldThrowException, string exceptionMessage, int delayBetweenMessagesInMilliseconds)
 		{
 			ShouldDisplayApplicationHelpInstructions = shouldDisplayApplicationHelpInstructions;
 			NumberOfMessagesToWrite = numberOfMessagesToWrite;
@@ -24,6 +26,8 @@ namespace ContinualOutput
 			StandardOutputString = standardOutputString ?? throw new ArgumentNullException(nameof(standardOutputString));
 			StandardErrorString = standardErrorString ?? throw new ArgumentNullException(nameof(standardErrorString));
 			ExitCode = exitCode;
+			ShouldThrowException = shouldThrowException;
+			ExceptionMessage = exceptionMessage ?? throw new ArgumentNullException(nameof(exceptionMessage)); ;
 			DelayBetweenMessagesInMilliseconds = delayBetweenMessagesInMilliseconds;
 		}
 	}

@@ -15,6 +15,8 @@ namespace ContinualOutput
 			string standardOutputString = "Default standard output message.";
 			string standardErrorString = "Default standard error message.";
 			int exitCode = 0;
+			bool shouldThrowException = false;
+			string exceptionMessage = "Default exception message.";
 			int delayBetweenMessagesInMilliseconds = 1000;
 
 			for (int index = 0; index < arguments.Length; index++)
@@ -48,6 +50,12 @@ namespace ContinualOutput
 					case "/ec":
 					case "/exitcode": exitCode = int.Parse(nextArgument); index++;
 						break;
+					case "/te":
+					case "/throwexception": shouldThrowException = true;
+						break;
+					case "/exm":
+					case "/exceptionmessage": exceptionMessage = nextArgument; index++;
+						break;
 					case "/d":
 					case "/delay": delayBetweenMessagesInMilliseconds = int.Parse(nextArgument); index++;
 						break;
@@ -66,6 +74,8 @@ namespace ContinualOutput
 				standardOutputString: standardOutputString,
 				standardErrorString: standardErrorString,
 				exitCode: exitCode,
+				shouldThrowException: shouldThrowException,
+				exceptionMessage: exceptionMessage,
 				delayBetweenMessagesInMilliseconds: delayBetweenMessagesInMilliseconds);
 			return applicationArguments;
 		}
@@ -73,7 +83,7 @@ namespace ContinualOutput
 		public static void DisplayHelpInstructions()
 		{
 			var instructions = @"
-Usage: ContinualOutput.exe ([/number count] | [/time milliseconds]) [/outputType type] [/outputMessage string] [/errorMessage string] [/exitCode int] [/delay milliseconds]
+Usage: ContinualOutput.exe ([/number count] | [/time milliseconds]) [/outputType type] [/outputMessage message] [/errorMessage message] [/exitCode int] [/throwException message] [/delay milliseconds]
 
 You must provide either the /number or /time argument. If both are provided, /time will be ignored.
 
@@ -81,9 +91,11 @@ Options (alias first):
 	/n /number count	The number of output strings to be written before exiting.
 	/t /time seconds	The number of milliseconds to run for before exiting.
 	/ot /outputType type	Determines if only Standard Output, Standard Error, or both are written. Valid values are 'output', 'error', and 'all'. If not provided, the 'output' will be used.
-	/om /outputMessage string	The string to write to the Standard Output stream. If not provided a default will be used.
-	/em /errorMessage string	The string to write to the Standard Error stream. If not provided a default will be used.
-	/ec /exitCode int	The number to return when the console app exits. If not provided, 0 will be returned.
+	/om /outputMessage message	The string to write to the Standard Output stream. If not provided a default will be used.
+	/em /errorMessage message	The string to write to the Standard Error stream. If not provided a default will be used.
+	/ec /exitCode int	The number to return when the console app exits. If not provided, 0 will be returned. If /throwException is specified, this parameter is ignored.
+	/te /throwException	Throws an exception that causes the application to exit. The exception is thrown after all messages have been written.
+	/exm /exceptionMessage message	The string to use for the Exception's message when using the /throwException parameter. If not provided a default will be used.
 	/d /delay int		The number of milliseconds to wait between output messages. If not provided, 1000 will be used.
 ";
 			Console.WriteLine(instructions);

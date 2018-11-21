@@ -23,6 +23,10 @@ namespace ContinualOutput
 
 			WriteMessagesUntilComplete();
 
+			if (ApplicationArguments.ShouldThrowException)
+			{
+				throw new Exception(ApplicationArguments.ExceptionMessage);
+			}
 			return ApplicationArguments.ExitCode;
 		}
 
